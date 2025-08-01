@@ -1,6 +1,6 @@
 # Vamos a importar NLTK (Natural Language Toolkit) que nos va a ayudar a trabajar con lenguaje natural
 import nltk
-
+import pandas as pd
 # Definir la ruta donde se almacenarán los datos descargados de NLTK
 nltk.data.path.append(r'C:\Users\dgomez\AppData\Roaming\nltk_data')
 
@@ -19,7 +19,7 @@ from nltk.probability import FreqDist
 # Definimos un texto en español que queramos analizar
 
 texto = """
-Soy Diego, Ing. de sistemas me gustan los deportes y el ejercicio en general. Vivo en Bogota con mi familia. Me encanta el ajedrez.
+Soy Diego, Ing. de sistemas me gustan los deportes y el ejercicio en general. Vivo en Bogota con mi familia. Me encanta el ajedrez que tambien es considerado un deporte entre los deportes.
 Soy Alba Suaréz, soy de Barranquilla, Colombia.Me gusta bailar, ir al gym y interactuar con la gente.soy instructora Sena y en otras
 """
 
@@ -43,6 +43,6 @@ print(palabras_filtradas)
 
 # Calculamos la frecuencia de cada palabra en la lista filtrada
 frecuencia_de_las_palabras = FreqDist(palabras_filtradas)
-
+frecuencia_de_las_palabras = pd.DataFrame(frecuencia_de_las_palabras.most_common(10), columns=["Palabra","Cantidad"])
 # Mostramos las 10 palabras más comunes y la cantidad de veces que aparecen
-print(frecuencia_de_las_palabras.most_common(10))
+print(frecuencia_de_las_palabras)
